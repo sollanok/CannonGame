@@ -13,9 +13,9 @@ def tap(x, y):
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        # TODO: velocidad proyectil
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        # velocidad del proyectil triplicada
+        speed.x = (x + 600) / 25
+        speed.y = (y + 600) / 25
 
 
 def inside(xy):
@@ -45,13 +45,15 @@ def move():
         target = vector(200, y)
         targets.append(target)
 
-    # TODO: velocidad proyectil
+    # velocidad de los objetivos aumentada
+    # .5 a .8
     for target in targets:
-        target.x -= 0.5
+        target.x -= .8 #####
 
-    # TODO: velocidad proyectil
+    # velocidad de la gravedad aumentada (afecta al proyectil)
+    # de .35 a .5
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= .5
         ball.move(speed)
 
     dupe = targets.copy()
